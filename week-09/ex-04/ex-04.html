@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Exercise 4 — Password-Protected Reveal</title>
+    <link rel="stylesheet" type="text/css" href="style.css" />
+      
+  </head>
+    
+    
+        <!-- 
+      Summary: 
+      This exercise introduces JavaScript interactivity. You connect 
+      an input box to hidden content. When the user types the correct 
+      password, JavaScript "unlocks" and reveals different parts of 
+      the page. This shows how input, logic, and DOM manipulation 
+      work together.
+    -->
+  
+  <body>
+    
+    <main>
+      <h1>Enter a password</h1>
+
+      <!-- A text input where the user types the password -->
+      <input type="text" id="user-input" />
+
+      <!-- Clicking this button runs the checkInput() function -->
+      <button onclick="checkInput()">submit</button>
+      
+      <!-- These options are hidden by default and only appear when the correct password is entered -->
+      <p id="option1" class="hidden">
+        This is the first hidden option. It reveals a secret hyperlink 
+        <a href="#">link</a>.
+      </p>
+            
+      <p id="option2" class="hidden">
+        This is the second hidden option.
+      </p>
+    </main>
+    
+    <script>
+      // This function runs whenever the user clicks the "submit" button
+      function checkInput() {
+        
+        // Step 1: Define the "correct" passwords to check against
+        let password = "password1";         // first possible password
+        let anotherPassword = "password2";  // second possible password
+
+        // Step 2: Get references to the hidden elements we want to reveal
+        let option1 = document.getElementById('option1'); // first hidden <p>
+        let option2 = document.getElementById('option2'); // second hidden <p>
+
+        // Step 3: Read what the user typed into the text box
+        let inputText = document.getElementById('user-input').value;
+
+        // Step 4: Compare the user’s input against the stored passwords
+        switch(inputText) {
+          
+          // Case 1: if the user typed "password1"
+          case password:
+            // remove the 'hidden' class from option1 so it becomes visible
+            option1.classList.remove('hidden');
+            break;
+          
+          // Case 2: if the user typed "password2"
+          case anotherPassword:
+            // remove the 'hidden' class from option2 so it becomes visible
+            option2.classList.remove('hidden');
+            break;
+        }
+      }
+    </script>
+    
+
+  </body>
+</html>

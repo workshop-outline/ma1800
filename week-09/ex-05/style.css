@@ -1,0 +1,28 @@
+/* CSS Document — styling rules for the simulated chatbox */
+
+body {
+  font-family: sans-serif;
+  background: #333; /* dark background for contrast */
+  color: white;
+}
+
+/* Container that holds all chat comments */
+#chatbox {
+  margin: 10px;
+  padding: 10px;
+  max-height: 400px;       /* limit height so it feels like a chat window */
+  overflow-y: auto;        /* adds scroll when comments overflow */
+  border: 2px solid #555;  /* subtle border */
+  background: #222;        /* slightly darker box to separate from body */
+}
+
+/* Style applied to usernames (from JS random colour inline style) */
+.comment-username {
+  font-weight: bold;
+}
+
+/* Style applied to the text of each comment */
+.comment-text {
+  margin-left: 15px; /* creates space between username and comment */
+  color: white;      /* ensures visibility against dark background */
+}

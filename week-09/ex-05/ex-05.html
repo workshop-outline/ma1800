@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>Exercise — Simulated Chatbox</title>
+    <link rel="stylesheet" type="text/css" href="style.css" />
+  </head>
+  <body>
+    
+    <!-- This is the container where new chat comments will appear -->
+    <div id="chatbox"></div>
+    
+    <script type="text/javascript">
+      /* -------------------------------
+         EDITABLE PART FOR LEARNERS
+         -------------------------------
+         You can change the usernames,
+         comments, and number of messages 
+         below to experiment with the chat. 
+      */
+
+      let usernames = ["tony16", "chad111", "helen9001", "alex09"]; // pool of usernames
+      let comments = ["hey", "yo", "hi", "ciao", "oi!"]; // pool of comments
+      let numComments = 100; // total number of comments to generate
+
+      /* -------------------------------
+         FUNCTIONAL PART (NO NEED TO EDIT)
+         -------------------------------
+         This code randomly selects a user 
+         and comment, then inserts it into 
+         the chatbox at random intervals.
+      */
+
+      // Start the process by calling newComment() once
+      newComment();
+
+      function newComment() {
+        // Choose a random username from the list
+        let user = usernames[Math.floor(Math.random() * usernames.length)];
+
+        // Choose a random comment from the list
+        let commentText = comments[Math.floor(Math.random() * comments.length)];
+        
+        // Pick a random delay time before the next comment appears
+        let randomDelay = Math.floor(Math.random() * 400) + 50;
+
+        // Create a chunk of HTML with the username and comment
+        // Username is given a random colour using HSL colour values
+        let commentHtml = `
+          <div class="comment">
+            <span class="comment-username" 
+                  style="color: hsl(${Math.floor(Math.random() * 360)}, 75%, 75%)">
+                  ${user}
+            </span>
+            <span class="comment-text">${commentText}</span>
+          </div>`;
+
+        // Insert the comment HTML into the chatbox container
+        let chatbox = document.getElementById("chatbox");
+        chatbox.insertAdjacentHTML('beforeend', commentHtml);
+        
+        // Decrease the number of comments left
+        numComments--;
+        
+        // If we still have comments left, schedule the next one
+        if (numComments > 0) {
+          setTimeout(newComment, randomDelay);
+        }
+      }
+    </script>
+  </body>
+</html>

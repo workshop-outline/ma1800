@@ -1,0 +1,43 @@
+/* CSS Document — styling rules for Exercise 4 */
+
+body {
+  margin: 0;
+  background: black;
+  font-family: monospace;
+  color: white;
+}
+
+/* Style for the input box where users type the password */
+input {
+  width: 100%;
+  border: thin white solid;
+  padding: 5px;
+  margin: 15px 0;
+}
+
+main {
+  width: 200px;
+  margin: 0 auto; /* centers the content horizontally */
+}
+
+/* Style for the submit button */
+button {
+  background: black;
+  border: 1px white solid;
+  color: white;
+  font-family: monospace;
+  text-transform: uppercase; /* makes button text all caps */
+}
+
+button:hover {
+  border: red 1px solid; /* hover effect for feedback */
+}
+
+/* 
+  The .hidden class is applied to elements we don’t want to show at first. 
+  JavaScript removes this class when the correct password is typed, 
+  revealing the hidden element.
+*/
+.hidden {
+  display: none;
+}
